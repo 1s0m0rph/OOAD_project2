@@ -1,4 +1,5 @@
 using namespace std;
+#include <string>;
 
 class EatBehavior
 {
@@ -9,7 +10,7 @@ class EatBehavior
 		virtual string eat();
 
 	protected:
-		string eatFoodFromListRandom(string[] foods, double[] probs, int len)
+		string eatFoodFromListRandom(string foods[], double probs[], int len)
 		{
 			srand(time(0));
 			double prob_agg = 0;
@@ -23,40 +24,48 @@ class EatBehavior
 			}
 			return foods[len-1];
 		}
-}
+};
 
 class Carnivore:public EatBehavior
 {
 	public:
 		string eat()
 		{
-			return eatFoodFromListRandom({"Meat","Chicken","Eggs"},{0.3,0.4,0.3},3);
+			string fods[] = {"Meat","Chicken","Eggs"};
+			double probs[] = {0.3,0.4,0.3};
+			return eatFoodFromListRandom(fods,probs,3);
 		}
-}
+};
 
 class Herbivore:public EatBehavior
 {
 	public:
 		string eat()
 		{
-			return eatFoodFromListRandom({"Grass","Vegetables","Salad","Vegetal"},{0.4,0.4,0.19,0.01},4);
+			string fods[] = {"Grass","Vegetables","Salad","Vegetal"};
+			double probs[] = {0.4,0.4,0.19,0.01};
+			return eatFoodFromListRandom(fods,probs,4);
 		}
-}
+};
 
 class PickyCarnivore:public EatBehavior
 {
 	public:
 		string eat()
 		{
-			return eatFoodFromListRandom({"Meat","Chicken","Eggs","Nothing"},{0.1,0.1,0.1,0.7},4);
+			string fods[] = {"Meat","Chicken","Eggs","Nothing"};
+			double probs[] = {0.1,0.1,0.1,0.7};
+			return eatFoodFromListRandom(fods,probs,4);
 		}
-}
+};
 
 class PickyHerbivore:public EatBehavior
 {
 	public:
 		string eat()
 		{
-			return eatFoodFromListRandom({"Grass","Vegetables","Salad","Vegetal","Nothing"},{0.1,0.2,0.05,0.01,0.64},5);
+			string fods[] = {"Grass","Vegetables","Salad","Vegetal","Nothing"};
+			double probs[] = {0.1,0.2,0.05,0.01,0.64};
+			return eatFoodFromListRandom(fods,probs,5);
 		}
-}
+};

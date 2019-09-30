@@ -1,7 +1,8 @@
 using namespace std;
-#include <EatBehavior.hpp>;//strategy
-#include <RoamBehavior.hpp>;//strategy
+#include "EatBehavior.hpp";//strategy
+#include "RoamBehavior.hpp";//strategy
 #include <cassert>;
+#include <string>;
 
 class Animal
 {
@@ -50,13 +51,6 @@ class Animal
 
 		virtual void makeNoise();
 
-		/*
-		Define this so we don't need to redo the same method for all of the subclasses
-		*/
-		void makeNoise(string noise)
-		{
-			cout << name << " the " << type << " " << noise << endl;
-		}
 
 	private:
 		string name, type;
@@ -64,7 +58,15 @@ class Animal
 		RoamBehavior roamer;
 		EatBehavior eater;
 
-}
+	protected:
+		/*
+		Define this so we don't need to redo the same method for all of the subclasses
+		*/
+		void makeNoise(string noise)
+		{
+			cout << name << " the " << type << " " << noise << endl;
+		}
+};
 
 class Pachyderm:public Animal
 {
@@ -73,7 +75,7 @@ class Pachyderm:public Animal
 		{
 			__super::Animal(name,type);
 		}
-}
+};
 
 class Elephant:public Pachyderm
 {
@@ -87,7 +89,7 @@ class Elephant:public Pachyderm
 		{
 			makeNoise("trumpets");
 		}
-}
+};
 
 class Rhino:public Pachyderm
 {
@@ -101,7 +103,7 @@ class Rhino:public Pachyderm
 		{
 			makeNoise("galumphs");
 		}
-}
+};
 
 class Hippo:public Pachyderm
 {
@@ -115,7 +117,7 @@ class Hippo:public Pachyderm
 		{
 			makeNoise("splooshes");
 		}
-}
+};
 
 class Feline:public Animal
 {
@@ -124,7 +126,7 @@ class Feline:public Animal
 		{
 			__super::Animal(name,type);
 		}
-}
+};
 
 class Lion:public Feline
 {
@@ -138,7 +140,7 @@ class Lion:public Feline
 		{
 			makeNoise("roars");
 		}
-}
+};
 
 class Tiger:public Feline
 {
@@ -152,7 +154,7 @@ class Tiger:public Feline
 		{
 			makeNoise("growls");
 		}
-}
+};
 
 class HouseCat:public Feline
 {
@@ -166,7 +168,7 @@ class HouseCat:public Feline
 		{
 			makeNoise("meows");
 		}
-}
+};
 
 class Canine:public Animal
 {
@@ -175,7 +177,7 @@ class Canine:public Animal
 		{
 			__super::Animal(name,type);
 		}
-}
+};
 
 class Wolf:public Canine
 {
@@ -189,7 +191,7 @@ class Wolf:public Canine
 		{
 			makeNoise("howls");
 		}
-}
+};
 
 class Dog:public Canine
 {
@@ -203,4 +205,4 @@ class Dog:public Canine
 		{
 			makeNoise("barks");
 		}
-}
+};
