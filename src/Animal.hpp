@@ -63,7 +63,7 @@ class Animal
 		/*
 		Define this so we don't need to redo the same method for all of the subclasses
 		*/
-		void makeNoise(string noise)
+		void makeNoise_internal(string noise)
 		{
 			cout << name << " the " << type << " " << noise << endl;
 		}
@@ -78,129 +78,99 @@ class Pachyderm:public Animal
 class Elephant:public Pachyderm
 {
 	public:
-		Elephant(String name)
-		{
-			__super::Pachyderm(name,"Elephant");
-		}
+		Elephant(string name) : Pachyderm(name,"Elephant") {}
 
 		void makeNoise()
 		{
-			makeNoise("trumpets");
+			makeNoise_internal("trumpets");
 		}
 };
 
 class Rhino:public Pachyderm
 {
 	public:
-		Rhino(String name)
-		{
-			__super::Pachyderm(name,"Rhino");
-		}
+		Rhino(string name) : Pachyderm(name,"Rhino") {}
 
 		void makeNoise()
 		{
-			makeNoise("galumphs");
+			makeNoise_internal("galumphs");
 		}
 };
 
 class Hippo:public Pachyderm
 {
 	public:
-		Hippo(String name)
-		{
-			__super::Pachyderm(name,"Hippo");
-		}
+		Hippo(string name) : Pachyderm(name,"Hippo") {}
 
 		void makeNoise()
 		{
-			makeNoise("splooshes");
+			makeNoise_internal("splooshes");
 		}
 };
 
 class Feline:public Animal
 {
 	public:
-		Feline(string name, string type)
-		{
-			__super::Animal(name,type);
-		}
+		Feline(string name, string type) : Animal(name,type) {}
 };
 
 class Lion:public Feline
 {
 	public:
-		Lion(string name)
-		{
-			__super::Feline(name,"Lion");
-		}
+		Lion(string name) : Feline(name,"Lion") {}
 
 		void makeNoise()
 		{
-			makeNoise("roars");
+			makeNoise_internal("roars");
 		}
 };
 
 class Tiger:public Feline
 {
 	public:
-		Tiger(string name)
-		{
-			__super::Feline(name,"Tiger");
-		}
+		Tiger(string name) : Feline(name,"Tiger") {}
 
 		void makeNoise()
 		{
-			makeNoise("growls");
+			makeNoise_internal("growls");
 		}
 };
 
 class HouseCat:public Feline
 {
 	public:
-		HouseCat(string name)
-		{
-			__super::Feline(name,"HouseCat");
-		}
+		HouseCat(string name) : Feline(name,"HouseCat") {}
 
 		void makeNoise()
 		{
-			makeNoise("meows");
+			makeNoise_internal("meows");
 		}
 };
 
 class Canine:public Animal
 {
 	public:
-		Canine(string name, string type)
-		{
-			__super::Animal(name,type);
-		}
+		Canine(string name, string type) : Animal(name,type) {}
 };
 
 class Wolf:public Canine
 {
 	public:
-		Wolf(string name)
-		{
-			__super::Canine(name,"Wolf");
-		}
+		Wolf(string name) : Canine(name,"Wolf") {}
 
 		void makeNoise()
 		{
-			makeNoise("howls");
+			makeNoise_internal("howls");
 		}
 };
 
 class Dog:public Canine
 {
 	public:
-		Dog(string name)
-		{
-			__super::Canine(name,"Dog");
-		}
+		Dog(string name) : Canine(name,"Dog") {}
 
 		void makeNoise()
 		{
-			makeNoise("barks");
+			makeNoise_internal("barks");
 		}
 };
