@@ -1,10 +1,11 @@
 using namespace std;
-#include <string>;
+#include <string>
+#include <iostream>
 
 class RoamBehavior
 {
 	public:
-		virtual void roam();
+		virtual string roam();
 
 	protected:
 		string takeBehaviorFromListRandom(string behvs[], double probs[], int len)
@@ -20,12 +21,13 @@ class RoamBehavior
 					return behvs[i];
 			}
 			return behvs[len-1];
+		}
 };
 
 class SavannahBeast:public RoamBehavior
 {
 	public:
-		void roam()
+		string roam()
 		{
 			string behvs[] = {"frolicks in the grass","rests on a pile of rocks","meanders through the grass"};
 			double probs[] = {0.4,0.2,0.4};
@@ -36,7 +38,7 @@ class SavannahBeast:public RoamBehavior
 class HouseBeast:public RoamBehavior
 {
 	public:
-		void roam()
+		string roam()
 		{
 			string behvs[] = {"rests on the couch","galumphs about the living room","watches the door intently","tries to break into the food storage"};
 			double probs[] = {0.3,0.2,0.3,0.2};
@@ -47,7 +49,7 @@ class HouseBeast:public RoamBehavior
 class HouseBeastEvil:public RoamBehavior
 {
 	public:
-		void roam()
+		string roam()
 		{
 			string behvs[] = {"rests on the couch","galumphs about the living room","watches the door intently","tries to break into the food storage","plots the demise of humanity"};
 			double probs[] = {0.2,0.2,0.2,0.2,0.2};
@@ -58,7 +60,7 @@ class HouseBeastEvil:public RoamBehavior
 class ForestJungleBeast:public RoamBehavior
 {
 	public:
-		void roam()
+		string roam()
 		{
 			string behvs[] = {"wanders through the trees","climbs a tree","rests in a clearing"};
 			double probs[] = {0.3,0.4,0.3};

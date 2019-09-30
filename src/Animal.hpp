@@ -1,16 +1,17 @@
 using namespace std;
-#include "EatBehavior.hpp";//strategy
-#include "RoamBehavior.hpp";//strategy
-#include <cassert>;
-#include <string>;
+#include "EatBehavior.hpp"//strategy
+#include "RoamBehavior.hpp"//strategy
+#include <cassert>
+#include <string>
+#include <iostream>
 
 class Animal
 {
 	public:
 		Animal(string name, string type)
 		{
-			this.name = name;
-			this.type = type;
+			this->name = name;
+			this->type = type;
 
 			assert(type.at(0) == name.at(0));//make sure the animals' names start with the same character their type starts with
 
@@ -71,10 +72,7 @@ class Animal
 class Pachyderm:public Animal
 {
 	public:
-		Pachyderm(string name, string type)
-		{
-			__super::Animal(name,type);
-		}
+		Pachyderm(string name, string type) : Animal(name,type) { }
 };
 
 class Elephant:public Pachyderm

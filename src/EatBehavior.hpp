@@ -1,5 +1,6 @@
 using namespace std;
-#include <string>;
+#include <string>
+#include <iostream>
 
 class EatBehavior
 {
