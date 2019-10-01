@@ -10,7 +10,7 @@ class EatBehavior
 		/*
 		This has to return a string as opposed to just telling everyone what's going on since it doesn't know anything about what class it's operating for
 		*/
-		virtual string eat();
+		virtual string eat() = 0;
 
 	protected:
 		string eatFoodFromListRandom(string foods[], double probs[], int len);

@@ -1,10 +1,10 @@
 using namespace std;
 #include "EatBehavior.hpp"
 
-string EatBehavior::eat()
+/*string EatBehavior::eat()
 {
     return "Food";
-}
+}*/
 
 string EatBehavior::eatFoodFromListRandom(string foods[], double probs[], int len)
 {

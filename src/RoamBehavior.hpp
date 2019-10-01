@@ -7,7 +7,7 @@ using namespace std;
 class RoamBehavior
 {
 	public:
-		virtual string roam();
+		virtual string roam() = 0;
 
 	protected:
 		string takeBehaviorFromListRandom(string behvs[], double probs[], int len);
