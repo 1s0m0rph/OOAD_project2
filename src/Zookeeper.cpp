@@ -47,7 +47,7 @@ void Zookeeper::exerciseAnimals(list<Animal*> zoo)
 
 void Zookeeper::shutDownZoo(list<Animal*> zoo)
 {
-	notifyObservers("put do bed");//use observer to notify the announcer
+	notifyObservers("put to bed");//use observer to notify the announcer
 	cout << "Lights out.\n";
 
 	for(auto animal : zoo)
