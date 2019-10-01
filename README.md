@@ -15,3 +15,9 @@ ___
 1. Strategy was used to implement both the roam() functionality of the Animal classes and the eat() functionality. This allows animals that live in different environments and eat different foods to act differently from other animals.
 
 2. One minor change in the location of randomness for this program is that it is implemented *only* in the strategy patterns, which allows the Animal subclasses to be much simplified.
+
+___
+
+#### Instructions for running:
+
+A makefile is included, so the command `make` can simply be run, after which the executable for the program will be called `zoo` and can be executed using `./zoo`.
