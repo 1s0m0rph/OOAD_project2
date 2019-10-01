@@ -6,7 +6,12 @@ Animal::Animal(string name, string type)
     this->name = name;
     this->type = type;
 
-    assert(type.at(0) == name.at(0));//make sure the animals' names start with the same character their type starts with
+    //make sure the animals' names start with the same character their type starts with
+    if(type.at(0) != name.at(0))
+    {
+    	cout << "ERROR: " << name << " has name that does not start with the correct character (should be " << type.at(0) << " as in " << type << ")\n";
+    	exit(1);
+    }
 
     isAsleep = true;
 }
@@ -66,7 +71,7 @@ void Rhino::makeNoise()
 }
 
 /* Hippo implementation */
-void Animal::makeNoise()
+void Hippo::makeNoise()
 {
     makeNoise_internal("splooshes");
 }

@@ -3,6 +3,7 @@
 using namespace std;
 #include <string>
 #include <iostream>
+#include <cstdlib>
 
 class RoamBehavior
 {
@@ -32,6 +33,12 @@ class HouseBeastEvil:public RoamBehavior
 };
 
 class ForestJungleBeast:public RoamBehavior
+{
+	public:
+		string roam();
+};
+
+class WetlandBeast:public RoamBehavior
 {
 	public:
 		string roam();

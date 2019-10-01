@@ -52,3 +52,10 @@ string ForestJungleBeast::roam()
     double probs[] = {0.3,0.4,0.3};
     return takeBehaviorFromListRandom(behvs,probs,3);
 }
+
+string WetlandBeast::roam()
+{
+	string behvs[] = {"swims about in the river","relaxes on a riverbank","gets stuck in the mud"};
+    double probs[] = {0.3,0.4,0.3};
+    return takeBehaviorFromListRandom(behvs,probs,3);
+}

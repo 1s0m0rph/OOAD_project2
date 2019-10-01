@@ -2,9 +2,9 @@
 #define ANIMAL_HPP
 #include "EatBehavior.hpp"//strategy
 #include "RoamBehavior.hpp"//strategy
-#include <cassert>
 #include <string>
 #include <iostream>
+#include <cstdlib>
 
 class Animal
 {
