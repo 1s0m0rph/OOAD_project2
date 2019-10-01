@@ -1,4 +1,5 @@
-using namespace std;
+#ifndef ANIMAL_HPP
+#define ANIMAL_HPP
 #include "EatBehavior.hpp"//strategy
 #include "RoamBehavior.hpp"//strategy
 #include <cassert>
@@ -8,65 +9,26 @@ using namespace std;
 class Animal
 {
 	public:
-		Animal(string name, string type)
-		{
-			this->name = name;
-			this->type = type;
-
-			assert(type.at(0) == name.at(0));//make sure the animals' names start with the same character their type starts with
-
-			isAsleep = true;
-		}
-
-		void setRoamBehavior(RoamBehavior behavior)
-		{
-			roamer = behavior;
-		}
-		void setEatBehavior(EatBehavior behavior)
-		{
-			eater = behavior;
-		}
-
-		void roam()
-		{
-			string roamstr = roamer.roam();
-			cout << name << " the " << type << roamstr << endl;
-		}
-		void eat()
-		{
-			string food = eater.eat();
-			cout << name << " the " << type << " consumes " << food << endl;
-		}
-
-		void wakeUp()
-		{
-			isAsleep = false;
-			cout << "What's this? " << name << ", a " << type << " is waking up!\n";
-		}
-
-		void goToSleep()
-		{
-			isAsleep = true;
-			cout << "Bedtime for the " << type << " " << name << endl;
-		}
-
+		Animal(string name, string type);
+		void setRoamBehavior(RoamBehavior *behavior);
+		void setEatBehavior(EatBehavior *behavior);
+		void roam();
+		void eat();
+		void wakeUp();
+		void goToSleep();
 		virtual void makeNoise();
-
 
 	private:
 		string name, type;
 		bool isAsleep;
-		RoamBehavior roamer;
-		EatBehavior eater;
+		RoamBehavior *roamer;
+		EatBehavior *eater;
 
 	protected:
 		/*
 		Define this so we don't need to redo the same method for all of the subclasses
 		*/
-		void makeNoise_internal(string noise)
-		{
-			cout << name << " the " << type << " " << noise << endl;
-		}
+		void makeNoise_internal(string noise);
 };
 
 class Pachyderm:public Animal
@@ -79,22 +41,14 @@ class Elephant:public Pachyderm
 {
 	public:
 		Elephant(string name) : Pachyderm(name,"Elephant") {}
-
-		void makeNoise()
-		{
-			makeNoise_internal("trumpets");
-		}
+		void makeNoise();
 };
 
 class Rhino:public Pachyderm
 {
 	public:
 		Rhino(string name) : Pachyderm(name,"Rhino") {}
-
-		void makeNoise()
-		{
-			makeNoise_internal("galumphs");
-		}
+		void makeNoise();
 };
 
 class Hippo:public Pachyderm
@@ -102,10 +56,7 @@ class Hippo:public Pachyderm
 	public:
 		Hippo(string name) : Pachyderm(name,"Hippo") {}
 
-		void makeNoise()
-		{
-			makeNoise_internal("splooshes");
-		}
+		void makeNoise();
 };
 
 class Feline:public Animal
@@ -119,10 +70,7 @@ class Lion:public Feline
 	public:
 		Lion(string name) : Feline(name,"Lion") {}
 
-		void makeNoise()
-		{
-			makeNoise_internal("roars");
-		}
+		void makeNoise();
 };
 
 class Tiger:public Feline
@@ -130,10 +78,7 @@ class Tiger:public Feline
 	public:
 		Tiger(string name) : Feline(name,"Tiger") {}
 
-		void makeNoise()
-		{
-			makeNoise_internal("growls");
-		}
+		void makeNoise();
 };
 
 class HouseCat:public Feline
@@ -141,10 +86,7 @@ class HouseCat:public Feline
 	public:
 		HouseCat(string name) : Feline(name,"HouseCat") {}
 
-		void makeNoise()
-		{
-			makeNoise_internal("meows");
-		}
+		void makeNoise();
 };
 
 class Canine:public Animal
@@ -158,10 +100,7 @@ class Wolf:public Canine
 	public:
 		Wolf(string name) : Canine(name,"Wolf") {}
 
-		void makeNoise()
-		{
-			makeNoise_internal("howls");
-		}
+		void makeNoise();
 };
 
 class Dog:public Canine
@@ -169,8 +108,7 @@ class Dog:public Canine
 	public:
 		Dog(string name) : Canine(name,"Dog") {}
 
-		void makeNoise()
-		{
-			makeNoise_internal("barks");
-		}
+		void makeNoise();
 };
+
+#endif
