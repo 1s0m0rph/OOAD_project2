@@ -4,12 +4,17 @@
 using namespace std;
 
 int main() {
-    Dog *duke = new Dog("Duke");
-    duke->setRoamBehavior(new HouseBeast());
-    duke->roam();
-    HouseCat *harry = new HouseCat("Harry");
-    harry->setRoamBehavior(new HouseBeastEvil());
-    harry->setEatBehavior(new Carnivore());
-    harry->roam();
-    harry->eat();
+    Dog duke("Duke");
+    duke.setRoamBehavior(HouseBeast());
+    duke.roam();
+    HouseCat harry("Harry");
+    harry.setRoamBehavior(HouseBeastEvil());
+    harry.setEatBehavior(Carnivore());
+    harry.roam();
+    harry.eat();
+    harry.makeNoise();
+    duke.makeNoise();
+
+    Rhino ross("Ross");
+    ross.makeNoise();
 }

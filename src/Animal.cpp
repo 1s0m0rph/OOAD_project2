@@ -11,23 +11,23 @@ Animal::Animal(string name, string type)
     isAsleep = true;
 }
 
-void Animal::setRoamBehavior(RoamBehavior *behavior)
+void Animal::setRoamBehavior(RoamBehavior behavior)
 {
     roamer = behavior;
 }
-void Animal::setEatBehavior(EatBehavior *behavior)
+void Animal::setEatBehavior(EatBehavior behavior)
 {
     eater = behavior;
 }
 
 void Animal::roam()
 {
-    string roamstr = roamer->roam();
+    string roamstr = roamer.roam();
     cout << name << " the " << type << " " << roamstr << endl;
 }
 void Animal::eat()
 {
-    string food = eater->eat();
+    string food = eater.eat();
     cout << name << " the " << type << " consumes " << food << endl;
 }
 

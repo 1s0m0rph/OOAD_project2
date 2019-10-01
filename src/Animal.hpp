@@ -10,8 +10,8 @@ class Animal
 {
 	public:
 		Animal(string name, string type);
-		void setRoamBehavior(RoamBehavior *behavior);
-		void setEatBehavior(EatBehavior *behavior);
+		void setRoamBehavior(RoamBehavior behavior);
+		void setEatBehavior(EatBehavior behavior);
 		void roam();
 		void eat();
 		void wakeUp();
@@ -21,8 +21,8 @@ class Animal
 	private:
 		string name, type;
 		bool isAsleep;
-		RoamBehavior *roamer;
-		EatBehavior *eater;
+		RoamBehavior roamer;
+		EatBehavior eater;
 
 	protected:
 		/*
