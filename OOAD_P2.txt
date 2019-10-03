@@ -1,0 +1,69 @@
+title Authentication Sequence
+
+Main->*Animals: create
+loop for each Animal
+    Main->*EatBehavior: create
+    Main->Animals: setEatBehavior()
+    Main->*RoamBehavior: create
+    Main->Animals: setRoamBehavior()
+end
+Main->*Zookeeper: create
+Main->*ZooAnnouncer: create
+
+Main->Zookeeper: wakeAnimals()
+Zookeeper->Zookeeper: notifyObservers("wake")
+Zookeeper->ZooAnnouncer: update("wake")
+ZooAnnouncer->stdout: announcement
+Zookeeper->stdout: \"Waking up the animals"
+loop for each Animal
+    Zookeeper->Animals: wakeUp()
+    Animals->stdout: \"[animal] is awake"
+end
+Zookeeper->stdout: \"Animals are awake"
+
+Main->Zookeeper: rollCallAnimals()
+Zookeeper->Zookeeper: notifyObservers("roll call")
+Zookeeper->ZooAnnouncer: update("roll call")
+ZooAnnouncer->stdout: announcement
+Zookeeper->stdout: \"Taking roll call"
+loop for each animal
+    Zookeeper->Animals: makeNoise()
+    Animals->stdout: \"[noise]"
+end
+Zookeeper->stdout: \"All present and accounted for"
+
+Main->Zookeeper: feedAnimals()
+Zookeeper->Zookeeper: notifyObservers("feed")
+Zookeeper->ZooAnnouncer: update("feed")
+ZooAnnouncer->stdout: announcement
+Zookeeper->stdout: \"Feeding the animals"
+loop for each animal
+    Zookeeper->Animals: eat()
+    Animals->EatBehavior: eat()
+    EatBehavior->Animals: food
+    Animals->stdout: \"[animal] consumes [food]"
+end
+Zookeeper->stdout: \"Consumables consumed"
+
+Main->Zookeeper: exerciseAnimals()
+Zookeeper->Zookeeper: notifyObservers("exercise")
+Zookeeper->ZooAnnouncer: update("exercise")
+ZooAnnouncer->stdout: announcement
+Zookeeper->stdout: \"Time for a workout"
+loop for each animal
+    Zookeeper->Animals: roam()
+    Animals->RoamBehavior: roam()
+    RoamBehavior->Animals: roam_string
+    Animals->stdout: \"[animal] [roam_string]"
+end
+Zookeeper->stdout: \"All in a day's work"
+
+Main->Zookeeper: shutDownZoo()
+Zookeeper->Zookeeper: notifyObservers("put to bed")
+Zookeeper->ZooAnnouncer: update("put to bed")
+ZooAnnouncer->stdout: announcement
+Zookeeper->stdout: \"Lights out"
+loop for each animal
+    Zookeeper->Animals: goToSleep()
+    Animals->stdout: \"Bedtime for [animal]"
+end
