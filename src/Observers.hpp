@@ -1,10 +1,18 @@
-#ifndef OBSERVABLE_HPP
-#define OBSERVABLE_HPP
+#ifndef OBSERVERS_HPP
+#define OBSERVERS_HPP
 #include <string>
 #include <list>
 #include <iostream>
-#include "Observer.hpp"
 using namespace std;
+
+class Observable;
+class Observer
+{
+    public:
+        virtual void update(string msg) = 0;
+        virtual void subscribe(Observable subject) = 0;
+};
+
 
 class Observable
 {
@@ -29,5 +37,7 @@ class Observable
                 obs->update(msg);
         }
 };
+
+
 
 #endif

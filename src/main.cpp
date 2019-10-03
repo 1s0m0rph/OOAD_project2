@@ -137,7 +137,7 @@ int main() {
 
     Zookeeper zeke;
     ZooAnnouncer dave;
-    zeke.registerObserver(&dave);//here, observer is implemented
+    dave.subscribe(zeke);//here, observer is implemented
 
     zeke.wakeAnimals(zoo);
     zeke.rollCallAnimals(zoo);

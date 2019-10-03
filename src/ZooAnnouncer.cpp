@@ -6,3 +6,8 @@ void ZooAnnouncer::update(string event)
 {
     cout << "Attention guests, the Zookeeper is about to " << event << " the animals!" << endl;
 }
+
+void ZooAnnouncer::subscribe(Observable subject)
+{
+    subject.registerObserver(this);
+}

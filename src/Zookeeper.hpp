@@ -1,6 +1,6 @@
 #ifndef ZOOKEEPER_HPP
 #define ZOOKEEPER_HPP
-#include "Observable.hpp"
+#include "Observers.hpp"
 #include "Animal.hpp"
 #include <string>
 #include <list>
