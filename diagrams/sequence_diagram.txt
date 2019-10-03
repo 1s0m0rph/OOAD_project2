@@ -1,4 +1,4 @@
-title Authentication Sequence
+title The Zoo
 
 Main->*Animals: create
 loop for each Animal
