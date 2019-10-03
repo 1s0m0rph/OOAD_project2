@@ -9,6 +9,7 @@ loop for each Animal
 end
 Main->*Zookeeper: create
 Main->*ZooAnnouncer: create
+ZooAnnouncer->Zookeeper: registerObserver()
 
 Main->Zookeeper: wakeAnimals()
 Zookeeper->Zookeeper: notifyObservers("wake")
@@ -67,3 +68,11 @@ loop for each animal
     Zookeeper->Animals: goToSleep()
     Animals->stdout: \"Bedtime for [animal]"
 end
+
+Main->Main: exit
+destroy Animals
+destroy EatBehavior
+destroy RoamBehavior
+destroy Zookeeper
+destroy ZooAnnouncer
+destroy Main
